@@ -9,13 +9,12 @@ public class StateRunner {
     public void run(MouseState initialState) {
         logger.info("StateRunner BEGIN " + initialState.getClass().getName());
         MouseState state = initialState;
-        MouseState lastState = state;
         while (state != null) {
-            state = state.run();
-            if (state != null && state != lastState) {
-                logger.info("StateRunner UPDATE " + lastState.getClass().getName() + " -> " + state.getClass().getName());
-                lastState = state;
+            MouseState newState = state.run();
+            if (newState != null && state != newState) {
+                logger.info("StateRunner UPDATE " + state.getClass().getName() + " -> " + newState.getClass().getName());
             }
+            state = newState;
         }
         logger.info("StateRunner END");
     }
