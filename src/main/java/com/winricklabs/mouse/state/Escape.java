@@ -1,4 +1,4 @@
-package state;
+package com.winricklabs.mouse.state;
 
 public class Escape implements MouseState {
 
