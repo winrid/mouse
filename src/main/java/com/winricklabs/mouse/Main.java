@@ -12,6 +12,6 @@ public class Main {
 
         server.start();
 
-        new StateRunner().run(new Wakeup());
+//        new StateRunner().run(new Wakeup());
     }
 }

@@ -1,5 +1,6 @@
 package com.winricklabs.mouse.websocket;
 
+import com.winricklabs.mouse.motor.MotorController;
 import com.winricklabs.mouse.websocket.message.Message;
 import com.winricklabs.mouse.websocket.message.MessageDecoder;
 import com.winricklabs.mouse.websocket.message.MessageEncoder;
@@ -30,6 +31,8 @@ public class MouseSocketServer extends WebSocketServer {
     @Override
     public void onMessage(WebSocket conn, String message) {
         System.err.println("Yuxiu: onMessage "+message.toString());
+        // todo somehow deserialize
+        MotorController.updateMotors(0, 0);
     }
 
     @Override
