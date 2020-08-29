@@ -15,6 +15,11 @@ public class StateRunner {
                 logger.info("StateRunner UPDATE " + state.getClass().getName() + " -> " + newState.getClass().getName());
             }
             state = newState;
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         logger.info("StateRunner END");
     }
