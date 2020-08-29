@@ -8,9 +8,9 @@ import java.net.InetAddress;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        MouseSocketServer servere = new MouseSocketServer( 8080);
+        MouseSocketServer server = new MouseSocketServer( 8080);
 
-        servere.start();
+        server.start();
 
         new StateRunner().run(new Wakeup());
     }
