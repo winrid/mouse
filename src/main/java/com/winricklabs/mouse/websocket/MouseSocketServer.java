@@ -1,5 +1,9 @@
 package com.winricklabs.mouse.websocket;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.winricklabs.mouse.dto.UpdateMotors;
 import com.winricklabs.mouse.motor.MotorController;
 import com.winricklabs.mouse.websocket.message.Message;
 import com.winricklabs.mouse.websocket.message.MessageDecoder;
@@ -12,6 +16,8 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 
 public class MouseSocketServer extends WebSocketServer {
+
+    private static final Gson gson = new Gson();
 
     public MouseSocketServer(int port) {
         super(new InetSocketAddress(port));
@@ -31,8 +37,17 @@ public class MouseSocketServer extends WebSocketServer {
     @Override
     public void onMessage(WebSocket conn, String message) {
         System.err.println("Yuxiu: onMessage "+message.toString());
-        // todo somehow deserialize
-        MotorController.updateMotors(0, 0);
+        JsonObject jsonObject = (JsonObject) JsonParser.parseString(message);
+        String action = jsonObject.get("action").getAsString();
+
+        String data = jsonObject.get("data").getAsString();
+        switch (action) {
+            case "update-motors":
+                UpdateMotors updateMotors = gson.fromJson(data, UpdateMotors.class);
+                MotorController.updateMotors(updateMotors.leftMotor, updateMotors.rightMotor);
+                break;
+        }
+
     }
 
     @Override
