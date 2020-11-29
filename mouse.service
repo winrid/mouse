@@ -7,7 +7,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=pi
-ExecStart=/usr/bin/env sh /home/pi/mouse/run.sh
+ExecStart=/usr/bin/env sh /tmp/mouse/run.sh
 
 [Install]
 WantedBy=multi-user.target
