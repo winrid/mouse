@@ -4,13 +4,15 @@ import com.winricklabs.mouse.state.StateRunner;
 import com.winricklabs.mouse.state.Wakeup;
 import com.winricklabs.mouse.websocket.MouseSocketServer;
 
-import java.net.InetAddress;
-
 public class Main {
-    public static void main(String[] args) throws Exception {
-        MouseSocketServer server = new MouseSocketServer( 8080);
+
+    private static final int PORT = 8080;
+
+    public static void main(String[] args) {
+        MouseSocketServer server = new MouseSocketServer( PORT);
 
         server.start();
+        System.out.println("Server Started on " + PORT);
 
 //        new StateRunner().run(new Wakeup());
     }

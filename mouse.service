@@ -1,0 +1,13 @@
+[Unit]
+Description=mouse
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=pi
+ExecStart=/usr/bin/env sh /home/pi/mouse/run.sh
+
+[Install]
+WantedBy=multi-user.target

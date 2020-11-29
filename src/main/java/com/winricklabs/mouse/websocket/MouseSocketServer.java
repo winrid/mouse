@@ -25,7 +25,7 @@ public class MouseSocketServer extends WebSocketServer {
 
     @Override
     public void onOpen(WebSocket conn, ClientHandshake handshake) {
-        System.err.println("Yuxiu: onClose "+handshake.toString());
+        System.err.println("Yuxiu: onOpen "+handshake.toString());
 
     }
 
