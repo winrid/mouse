@@ -1,12 +1,12 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-in1 = 17
+in1 = 17#let
 in2 = 27
-in3 = 6
+in3 = 6#right
 in4 = 5
-en = 13
-enb = 22
+en = 13#first motor speed
+enb = 22#second motor speed
 temp1=1
 
 GPIO.setmode(GPIO.BCM)
