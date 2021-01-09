@@ -21,6 +21,7 @@ public class MouseSocketServer extends WebSocketServer {
 
     public MouseSocketServer(int port) {
         super(new InetSocketAddress(port));
+        setReuseAddr(true);
     }
 
     @Override
