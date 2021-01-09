@@ -21,7 +21,7 @@ public class MotorController {
 //        rightMotorSpeed = gpio.provisionPwmOutputPin(RaspiBcmPin.GPIO_22);
 //        rightMotorSpeed.setPwmRange(100);
 
-        leftMotorSpeed.setPwm(100);
+        leftMotorSpeed.setPwm(500);
 //        rightMotorSpeed.setPwm(100);
         System.err.println("Yuxiu: static block runs");
 

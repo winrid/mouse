@@ -24,7 +24,7 @@ public class MouseSocketServer extends WebSocketServer {
         setReuseAddr(true);
         try {
             System.out.println("Debugging - setting motors to half speed. Did this deploy?");
-            MotorController.updateMotors(100, 100);
+            MotorController.updateMotors(500, 500);
         } catch(Throwable e) {
             e.printStackTrace();
         }
