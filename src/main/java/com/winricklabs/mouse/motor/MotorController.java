@@ -6,8 +6,8 @@ public class MotorController {
     // create gpio controller
     private static final GpioController gpio = GpioFactory.getInstance();
     // provision gpio pin #01 as an output pin and turn on
-    private static final GpioPinDigitalOutput leftOnPin = gpio.provisionDigitalOutputPin(RaspiBcmPin.GPIO_11, "MyLED", PinState.HIGH);
-    private static final GpioPinDigitalOutput leftOffPin = gpio.provisionDigitalOutputPin(RaspiBcmPin.GPIO_18, "MyLED", PinState.LOW);
+    private static final GpioPinDigitalOutput leftOnPin = gpio.provisionDigitalOutputPin(RaspiBcmPin.GPIO_17, "MyLED", PinState.HIGH);
+    private static final GpioPinDigitalOutput leftOffPin = gpio.provisionDigitalOutputPin(RaspiBcmPin.GPIO_27, "MyLED", PinState.LOW);
 
     private static final GpioPinDigitalOutput rightOnPin = gpio.provisionDigitalOutputPin(RaspiBcmPin.GPIO_06, "MyLED", PinState.HIGH);
     private static final GpioPinDigitalOutput rightOffPin = gpio.provisionDigitalOutputPin(RaspiBcmPin.GPIO_05, "MyLED", PinState.LOW);
@@ -15,7 +15,7 @@ public class MotorController {
 //    private static final GpioPinPwmOutput rightMotorSpeed;
 
     static {
-        leftMotorSpeed = gpio.provisionPwmOutputPin(RaspiBcmPin.GPIO_13);
+        leftMotorSpeed = gpio.provisionSoftPwmOutputPin(RaspiBcmPin.GPIO_13);
         leftMotorSpeed.setPwmRange(1000);
 
 //        rightMotorSpeed = gpio.provisionPwmOutputPin(RaspiBcmPin.GPIO_22);
