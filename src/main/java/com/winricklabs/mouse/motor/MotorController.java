@@ -12,24 +12,24 @@ public class MotorController {
     private static final GpioPinDigitalOutput rightOnPin = gpio.provisionDigitalOutputPin(RaspiBcmPin.GPIO_06, "MyLED", PinState.HIGH);
     private static final GpioPinDigitalOutput rightOffPin = gpio.provisionDigitalOutputPin(RaspiBcmPin.GPIO_05, "MyLED", PinState.LOW);
     private static final GpioPinPwmOutput leftMotorSpeed;
-    private static final GpioPinPwmOutput rightMotorSpeed;
+//    private static final GpioPinPwmOutput rightMotorSpeed;
 
     static {
         leftMotorSpeed = gpio.provisionPwmOutputPin(RaspiBcmPin.GPIO_13);
         leftMotorSpeed.setPwmRange(100);
 
-        rightMotorSpeed = gpio.provisionPwmOutputPin(RaspiBcmPin.GPIO_22);
-        rightMotorSpeed.setPwmRange(100);
+//        rightMotorSpeed = gpio.provisionPwmOutputPin(RaspiBcmPin.GPIO_22);
+//        rightMotorSpeed.setPwmRange(100);
 
         leftMotorSpeed.setPwm(100);
-        rightMotorSpeed.setPwm(100);
+//        rightMotorSpeed.setPwm(100);
         System.err.println("Yuxiu: static block runs");
 
     }
 
     public static void updateMotors(int leftInputSpeed, int rightInputSpeed) {
         leftMotorSpeed.setPwm(leftInputSpeed);
-        rightMotorSpeed.setPwm(rightInputSpeed);
+//        rightMotorSpeed.setPwm(rightInputSpeed);
         System.err.println("Yuxiu: updated motor with speed :  "+leftInputSpeed + ", "+rightInputSpeed);
 
     }
