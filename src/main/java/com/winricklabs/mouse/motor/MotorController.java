@@ -30,6 +30,7 @@ public class MotorController {
     public static void updateMotors(int leftInputSpeed, int rightInputSpeed) {
         leftMotorSpeed.setPwm(leftInputSpeed);
         rightMotorSpeed.setPwm(rightInputSpeed);
+        System.err.println("Yuxiu: updated motor with speed :  "+leftInputSpeed + ", "+rightInputSpeed);
 
     }
 
