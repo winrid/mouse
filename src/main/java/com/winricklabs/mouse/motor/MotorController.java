@@ -23,6 +23,7 @@ public class MotorController {
 
         leftMotorSpeed.setPwm(500);
         rightMotorSpeed.setPwm(500);
+        System.err.println("Yuxiu: static block runs");
 
     }
 
