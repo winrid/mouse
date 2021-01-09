@@ -42,6 +42,7 @@ public class MouseSocketServer extends WebSocketServer {
         String action = jsonObject.get("action").getAsString();
 
         String data = jsonObject.get("data").getAsString();
+        System.out.println("Action is:" + data);
         switch (action) {
             case "update-motors":
                 UpdateMotors updateMotors = gson.fromJson(data, UpdateMotors.class);
