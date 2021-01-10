@@ -41,7 +41,7 @@ public class MotorController {
             forwardPin.low();
             reversePin.high();
         }
-        speedPin.setPwm(speed);
+        speedPin.setPwm(Math.abs(speed));
     }
 
 }

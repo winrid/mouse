@@ -22,12 +22,13 @@ public class MouseSocketServer extends WebSocketServer {
     public MouseSocketServer(int port) {
         super(new InetSocketAddress(port));
         setReuseAddr(true);
-        try {
-            System.out.println("Debugging - setting motors to half speed. Did this deploy?");
-            MotorController.updateMotors(500, 500);
-        } catch(Throwable e) {
-            e.printStackTrace();
-        }
+        System.out.println("Websocket server started...");
+//        try {
+//            System.out.println("Debugging - setting motors to half speed. Did this deploy?");
+//            MotorController.updateMotors(500, 500);
+//        } catch(Throwable e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
