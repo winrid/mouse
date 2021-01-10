@@ -15,6 +15,7 @@ public class MotorController {
 //    private static final GpioPinPwmOutput rightMotorSpeed;
 
     static {
+        leftOnPin.setShutdownOptions(true, PinState.LOW);
         leftOnPin.high();
         leftOffPin.low();
         leftMotorSpeed = gpio.provisionPwmOutputPin(RaspiBcmPin.GPIO_13);
