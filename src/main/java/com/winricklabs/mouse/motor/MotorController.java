@@ -27,9 +27,13 @@ public class MotorController {
     }
 
     public static void updateMotors(int leftInputSpeed, int rightInputSpeed) {
-        System.out.println(String.format("Updated motor speed left=[%s] right=[%s]", leftInputSpeed, rightInputSpeed));
-        updateMotorSpeed(leftForwardPin, leftReversePin, leftMotorSpeed, leftInputSpeed);
-        updateMotorSpeed(rightForwardPin, rightReversePin, rightMotorSpeed, rightInputSpeed);
+        try {
+            System.out.println(String.format("Updated motor speed left=[%s] right=[%s]", leftInputSpeed, rightInputSpeed));
+            updateMotorSpeed(leftForwardPin, leftReversePin, leftMotorSpeed, leftInputSpeed);
+            updateMotorSpeed(rightForwardPin, rightReversePin, rightMotorSpeed, rightInputSpeed);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
     }
 
     private static void updateMotorSpeed(GpioPinDigitalOutput forwardPin, GpioPinDigitalOutput reversePin, GpioPinPwmOutput speedPin, int speed) {
