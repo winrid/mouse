@@ -45,7 +45,9 @@ public class MotorController {
             forwardPin.low();
             reversePin.high();
         }
-        speedPin.setPwm(Math.abs(speed));
+        int speedAbs = Math.abs(speed);
+        System.out.println("Speed passed to motor is " + speed);
+        speedPin.setPwm(speedAbs);
     }
 
 }
