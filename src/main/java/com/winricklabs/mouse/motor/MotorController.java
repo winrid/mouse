@@ -15,7 +15,7 @@ public class MotorController {
     private static final GpioPinPwmOutput rightMotorSpeed;
 
     static {
-        leftMotorSpeed = gpio.provisionPwmOutputPin(RaspiPin.GPIO_23);
+        leftMotorSpeed = gpio.provisionPwmOutputPin(RaspiPin.GPIO_28);
         leftMotorSpeed.setPwmRange(1000);
 
         rightMotorSpeed = gpio.provisionPwmOutputPin(RaspiPin.GPIO_24);
