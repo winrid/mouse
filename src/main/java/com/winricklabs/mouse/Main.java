@@ -20,7 +20,7 @@ public class Main {
         final GpioController gpio = GpioFactory.getInstance();
 
         // Flash our LED on startup.
-        final GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_16, "MyLED", PinState.HIGH);
+        final GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_27, "MyLED", PinState.HIGH);
         pin.setShutdownOptions(true, PinState.LOW);
         pin.high();
         TimerTask timerTask = new TimerTask() {
