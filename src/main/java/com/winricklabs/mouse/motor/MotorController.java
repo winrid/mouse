@@ -11,14 +11,17 @@ public class MotorController {
 
     private static final GpioPinDigitalOutput rightForwardPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_22, "Right Forward", PinState.HIGH);
     private static final GpioPinDigitalOutput rightReversePin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_21, "Right Reverse", PinState.LOW);
-    private static final GpioPinPwmOutput leftMotorSpeed;
-    private static final GpioPinPwmOutput rightMotorSpeed;
+    private static final GpioPinPwmOutput leftMotorSpeed = gpio.provisionSoftPwmOutputPin(RaspiPin.GPIO_29);
+    private static final GpioPinPwmOutput rightMotorSpeed = gpio.provisionSoftPwmOutputPin(RaspiPin.GPIO_28);
 
     static {
-        leftMotorSpeed = gpio.provisionSoftPwmOutputPin(RaspiPin.GPIO_29);
-        leftMotorSpeed.setPwmRange(1000);
+        // Set these pins low to try to fix an audio noise through aux jack
+        gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, PinState.LOW);
+        gpio.provisionDigitalOutputPin(RaspiPin.GPIO_24, PinState.LOW);
+        gpio.provisionDigitalOutputPin(RaspiPin.GPIO_28, PinState.LOW);
+        gpio.provisionDigitalOutputPin(RaspiPin.GPIO_29, PinState.LOW);
 
-        rightMotorSpeed = gpio.provisionSoftPwmOutputPin(RaspiPin.GPIO_28);
+        leftMotorSpeed.setPwmRange(1000);
         rightMotorSpeed.setPwmRange(1000);
 
         leftMotorSpeed.setPwm(100);
