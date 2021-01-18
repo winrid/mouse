@@ -16,10 +16,10 @@ public class MotorController {
 
     static {
         // Set these pins low to try to fix an audio noise through aux jack
-        gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, PinState.LOW);
-        gpio.provisionDigitalOutputPin(RaspiPin.GPIO_24, PinState.LOW);
-        gpio.provisionDigitalOutputPin(RaspiPin.GPIO_28, PinState.LOW);
-        gpio.provisionDigitalOutputPin(RaspiPin.GPIO_29, PinState.LOW);
+        gpio.provisionPwmOutputPin(RaspiPin.GPIO_01).setPwm(0);
+        gpio.provisionPwmOutputPin(RaspiPin.GPIO_24).setPwm(0);
+        gpio.provisionPwmOutputPin(RaspiPin.GPIO_28).setPwm(0);
+        gpio.provisionPwmOutputPin(RaspiPin.GPIO_29).setPwm(0);
 
         leftMotorSpeed.setPwmRange(1000);
         rightMotorSpeed.setPwmRange(1000);
