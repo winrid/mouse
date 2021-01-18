@@ -12,17 +12,17 @@ public class MotorController {
     private static final GpioPinDigitalOutput rightForwardPin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_22, "Right Forward", PinState.HIGH);
     private static final GpioPinDigitalOutput rightReversePin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_21, "Right Reverse", PinState.LOW);
     private static final GpioPinPwmOutput leftMotorSpeed;
-    private static final GpioPinPwmOutput rightMotorSpeed = null;
+    private static final GpioPinPwmOutput rightMotorSpeed;
 
     static {
         leftMotorSpeed = gpio.provisionPwmOutputPin(RaspiPin.GPIO_23);
         leftMotorSpeed.setPwmRange(1000);
 
-        //rightMotorSpeed = gpio.provisionPwmOutputPin(RaspiPin.GPIO_24);
-        //rightMotorSpeed.setPwmRange(1000);
+        rightMotorSpeed = gpio.provisionPwmOutputPin(RaspiPin.GPIO_24);
+        rightMotorSpeed.setPwmRange(1000);
 
         leftMotorSpeed.setPwm(100);
-        //rightMotorSpeed.setPwm(100);
+        rightMotorSpeed.setPwm(100);
         System.out.println("Static block runs");
     }
 
